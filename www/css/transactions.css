@@ -1,0 +1,74 @@
+#addTransaction.modal{
+    margin: 0!important;
+}
+
+#addTransaction .modal-header h4{
+    margin-bottom: 0!important;
+    width: 100%!important;
+}
+
+#addTransaction button{
+    margin: 0 auto 3px;
+}
+.numberText{
+    text-align: left;
+    width: 45%;
+    margin: auto;
+    color: #0eb2f4;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+@media (min-width: 576px){
+    .modal-dialog {
+        max-width: 700px; 
+    }
+}
+th, td{
+    border: 1px solid #dedbdb;
+    white-space: nowrap;
+    text-align: center;
+
+}
+.addBtn{
+    background: #CFE2F3;
+    color: #000099;
+    border: 1px solid;
+    padding: 0px 20px;
+    font-size: 22px;
+    font-weight: 500;
+}
+.table-color {
+    background: #F2F2F2 !important;
+}
+.container-fluid {
+    padding: 0 50px;
+}
+.table-heading td {
+    font-weight:500 !important;
+    padding: 10px !important;
+}
+.table-column {
+    width: 10%;
+    padding: 0px 10px 0px 10px !important;
+}
+.pth-all {
+    margin-top: 0px;
+}
+.add-transaction-btn {
+    color:#4A86E8;
+    cursor: pointer;
+}
+
+table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before, 
+table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_asc_disabled:before, 
+table.dataTable thead .sorting_desc_disabled:before {
+    right: 4px !important;
+    top: -4px;
+}
+table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, 
+table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after, 
+table.dataTable thead .sorting_desc_disabled:after {
+    right: -2px !important;
+    top: -4px;
+}

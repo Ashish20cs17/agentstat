@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <!-- Meta setup -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="">
+    <meta name="decription" content="">
+    <meta name="author" content="Aaron">
+
+    <!-- Title -->
+    <title>Reports</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" href="/img/fav.png" />
+
+    <link href="/css/fileinput.css" rel="stylesheet" type="text/css">
+
+    <!-- Include Owl-Carusol -->
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+
+    <!-- Include Bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/morris.css" />
+    <script src="/js/bootstrap.js"></script>
+
+    <!-- Data Tables -->
+    <link rel="stylesheet" href="/plugins/datatables/css/dataTables.bootstrap4.min.css" />
+
+    <!-- Main StyleSheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+    <!-- Common css for all pages -->
+    <link rel="stylesheet" href="/css/common.css?0.0.1" />
+
+    <link rel="stylesheet" href="/css/transactions.css" />
+    <link rel="stylesheet" href="/css/tables.css" />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="/css/report.css" />
+
+    <!-- custom link popup css -->
+    <link rel="stylesheet" href="/css/popup.css" />
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+    <script type="text/javascript">
+    (function() {
+    window.__insp = window.__insp || [];
+    __insp.push(['wid', 1323524166]);
+    var ldinsp = function(){
+    if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=1323524166&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+    setTimeout(ldinsp, 0);
+    })();
+    </script>
+
+</head>
+
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- header-area start -->
+<div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 50000;">
+
+    <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand form-logo" href="/">
+                        <img src="/img/logo-beta.png" alt="logo" />
+                    </a>
+                    <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <div class="main-menu-part form-menu col-lg-12">
+                            <ul class="float-left form-ulli-left">
+                                <li class="inbox-link header-link"><a class="inbox-notification" href="/inbox/">Inbox </a></li>
+                                <li class="reports-link header-link"><a class="active" href="/reports/">Reporting </a></li>
+                                <li class="marketing-link header-link"><a href="/marketing/">Marketing </a></li>
+                                <li class="past-sales-link header-link"><a href="/past-sales/">Sales </a></li>
+                                <li class="referrals-link header-link"><a class="referral-notification" href="/referrals/">Referrals</a></li>
+                                <li class="team-link header-link"><a href="/team/">Team </a></li>
+                            </ul>
+                            <ul class="float-right user-icon form-ulli-right">
+                                <li>
+                                    <a class="my-profile-link" href="javascript:void(0)" target="_blank">
+                                        <p style="margin-bottom: 0px;">My Profile</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="dropdown profile show">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="display-picture"></span>
+                                        </a>
+
+                                        <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="/inbox/">
+                                                <p>Dashboard</p>
+                                                <span>View your stats and backend</span>
+                                            </a>
+                                            <a class="dropdown-item" href="/profile-settings/">
+                                                <p>Profile Settings</p>
+                                                <span>Edit your profile info and account settings</span>
+                                            </a>
+                                            <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+</div>
+<!-- header-area end -->
+<div class="col-md-12">
+
+    <div class="row">
+
+        <div class="reports">
+
+            <nav class="top-nav">
+                <div class="nav nav-tabs " id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true">Traffic</a>
+                    <a class="nav-item nav-link" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false">Leads</a>
+                    <a class="nav-item nav-link" id="pop3-tab" data-toggle="tab" href="#pop3" role="tab" aria-controls="pop3" aria-selected="false">Referrals</a>
+                </div>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="pop1" role="tabpanel" aria-labelledby="pop1-tab">
+                    <div class="reports-content">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav custom-nav" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#pop11">
+                                                <div class="reports-box report-active">
+                                                    <h1>Impressions</h1>
+                                                    <h2 id="traffic-impression-views">0</h2>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#pop22">
+                                                <div class="reports-box report-active">
+                                                    <h1>Profile Views</h1>
+                                                    <h2 id="traffic-profile-views">0</h2>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="date-filter">
+                                        <select name="select" class="date-range-dropdown" id="traffic-dropdown">
+                                            <option value="6">Last 7 Days</option>
+                                            <option value="29">Last 30 Days</option>
+                                            <option value="this">This Month</option>
+                                            <option value="last">Last Month</option>
+                                            <option value="365">Year to Date</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div id="pop11" class=" tab-pane active">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="reports-box-left">
+                                                        <div class="reports-box-left-title">
+                                                            <h1>Location</h1>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>CITY</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>ZIPCODE</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div id="traffic-impression-city-div" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div id="traffic-impression-zipcode" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="chart-right">
+                                                        <h1>Impressions Over Time</h1>
+                                                        <div class="chart" id="traffic-impression-chart-time" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Impressions by Property Type</h1>
+                                                        <div class="chart" id="traffic-impression-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Impressions by Price Point</h1>
+                                                        <div class="chart" id="traffic-impression-chart-price" style="height: 200px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="pop22" class="tab-pane fade">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="reports-box-left">
+                                                        <div class="reports-box-left-title">
+                                                            <h1>Location</h1>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>CITY</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>ZIPCODE</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div id="traffic-profile-city-div" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div id="traffic-profile-zipcode" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views Over Time</h1>
+                                                        <div class="chart" id="traffic-profile-chart-time" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views by Property Type</h1>
+                                                        <div class="chart" id="traffic-profile-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views by Price Point</h1>
+                                                        <div class="chart" id="traffic-profile-chart-price" style="height: 200px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pop2" role="tabpanel" aria-labelledby="pop2-tab">
+
+                    <div class="reports-content">
+
+                        <div class="col-md-12">
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+
+                                    <!-- Nav tabs -->
+                                    <ul class="nav custom-nav" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#pop111">
+
+                                                <div class="reports-box report-active">
+                                                    <h1>Sellers</h1>
+                                                    <h2 id="lead-seller-views">0</h2>
+                                                </div>
+
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#pop222">
+
+                                                <div class="reports-box report-active">
+                                                    <h1>Buyers</h1>
+                                                    <h2 id="lead-buyer-views">0</h2>
+                                                </div>
+
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="date-filter">
+                                        <select name="select" class="date-range-dropdown" id="lead-dropdown">
+                                            <option value="6">Last 7 Days</option>
+                                            <option value="29">Last 30 Days</option>
+                                            <option value="this">This Month</option>
+                                            <option value="last">Last Month</option>
+                                            <option value="365">Year to Date</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div id="pop111" class="tab-pane active">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="reports-box-left">
+                                                        <div class="reports-box-left-title">
+                                                            <h1>Location</h1>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>CITY</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>ZIPCODE</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div id="lead-seller-city-div" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div id="lead-seller-zipcode" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="chart-right">
+                                                        <h1>Seller Leads Over Time</h1>
+                                                        <div class="chart" id="lead-seller-chart-time" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Seller Leads by Property Type</h1>
+                                                        <div class="chart" id="lead-seller-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Seller Leads by Price Point</h1>
+                                                        <div class="chart" id="lead-seller-chart-price" style="height: 200px;"></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div id="pop222" class="tab-pane fade">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="reports-box-left">
+                                                        <div class="reports-box-left-title">
+                                                            <h1>Location</h1>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>CITY</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>ZIPCODE</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div id="lead-buyer-city-div" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div id="lead-buyer-zipcode" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="chart-right">
+                                                        <h1>Buyer Leads Over Time</h1>
+                                                        <div class="chart" id="lead-buyer-chart-time" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Buyer Leads by Property Type</h1>
+                                                        <div class="chart" id="lead-buyer-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Buyer Leads by Price Point</h1>
+                                                        <div class="chart" id="lead-buyer-chart-price" style="height: 200px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pop3" role="tabpanel" aria-labelledby="pop3-tab">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div style="display:table-cell; vertical-align:middle; text-align:center"></div>
+                                <img width="350px" src="/img/coming-soon.png" style="margin-left: auto; margin-right: auto; display: block; margin-top: 150px;">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="reports-content">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="nav custom-nav" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#p1">
+                                                <div class="reports-box report-active">
+                                                    <h1>Unique Visitors</h1>
+                                                    <h2 id="referral-unique-views">78</h2>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#p2">
+                                                <div class="reports-box report-active">
+                                                    <h1>Profile Views</h1>
+                                                    <h2 id="referral-profile-views">61</h2>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#p3">
+                                                <div class="reports-box report-active">
+                                                    <h1>Contact Requests</h1>
+                                                    <h2 id="referral-contact-views">61</h2>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#p4">
+                                                <div class="reports-box report-active">
+                                                    <h1>Signed Ref. Agr.</h1>
+                                                    <h2 id="referral-sign-views">61</h2>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="date-filter">
+                                        <select name="select" class="date-range-dropdown" id="referral-dropdown">
+                                            <option value="6">Last 7 Days</option>
+                                            <option value="29">Last 30 Days</option>
+                                            <option value="this">This Month</option>
+                                            <option value="last">Last Month</option>
+                                            <option value="365">Year to Date</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="tab-content">
+                                        <div id="p1" class="tab-pane active">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="reports-box-left">
+                                                        <div class="reports-box-left-title">
+                                                            <h1>Location</h1>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>CITY</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>ZIPCODE</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div id="referral-unique-city-div" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div id="referral-unique-zipcode" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="chart-right">
+                                                        <h1>Unique Visitors Over Time</h1>
+                                                        <div class="chart" id="referral-unique-chart-time" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Unique Visitors by Property Type</h1>
+                                                        <div class="chart" id="referral-unique-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Unique Visitors by Price Point</h1>
+                                                        <div class="chart" id="referral-unique-chart-price" style="height: 200px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="p2" class="tab-pane fade">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="reports-box-left">
+                                                        <div class="reports-box-left-title">
+                                                            <h1>Location</h1>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>CITY</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>ZIPCODE</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div id="referral-profile-city-div" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div id="referral-profile-zipcode" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views Over Time</h1>
+                                                        <div class="chart" id="referral-profile-chart-time" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views by Property Type</h1>
+                                                        <div class="chart" id="referral-profile-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Profile Views by Price Point</h1>
+                                                        <div class="chart" id="referral-profile-chart-price" style="height: 200px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="p3" class="tab-pane fade">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="reports-box-left">
+                                                        <div class="reports-box-left-title">
+                                                            <h1>Location</h1>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>CITY</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>ZIPCODE</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div id="referral-contact-city-div" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div id="referral-contact-zipcode" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="chart-right">
+                                                        <h1>Contact Requests Over Time</h1>
+                                                        <div class="chart" id="referral-contact-chart-time" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Contact Requests by Property Type</h1>
+                                                        <div class="chart" id="referral-contact-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Contact Requests by Price Point</h1>
+                                                        <div class="chart" id="referral-contact-chart-price" style="height: 200px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="p4" class="tab-pane fade">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="reports-box-left">
+                                                        <div class="reports-box-left-title">
+                                                            <h1>Location</h1>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>CITY</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="reports-inner">
+                                                                    <p>ZIPCODE</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div id="referral-sign-city-div" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div id="referral-sign-zipcode" class="reports-inner">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="chart-right">
+                                                        <h1>Signed Referral Agreements Over Time</h1>
+                                                        <div class="chart" id="referral-sign-chart-time" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Signed Referral Agreements by Property Type</h1>
+                                                        <div class="chart" id="referral-sign-chart-type" style="height: 200px;"></div>
+                                                    </div>
+                                                    <div class="chart-right">
+                                                        <h1>Signed Referral Agreements by Price Point</h1>
+                                                        <div class="chart" id="referral-sign-chart-price" style="height: 200px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="footer-wrapper text-center">
+            <p>Copyright © agentstat.com</p>
+            <ul>
+                <a href="https://agentstat.com/terms.pdf" target="_blank">"Terms of Use & Privacy Policy"</a>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="custom-link-form"></div>
+
+<div id="tab-tutorial-modal"></div>
+
+<!-- Main jQuery -->
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+<!-- Bootstrap Propper jQuery -->
+<script src="/js/popper.js"></script>
+
+<!-- Bootstrap jQuery -->
+<script src="/js/bootstrap.js"></script>
+<script src="/js/raphael.min.js"></script>
+<script src="/js/morris.min.js"></script>
+
+<!-- Fontawesome Script -->
+<script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+<script src="/js/type.js"></script>
+
+<!-- Bootbox confirm box -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+
+<script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
+
+<script src="/js/owl.carousel.min.js"></script>
+
+<!-- Data table js -->
+<script src="/plugins/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Custom jQuery -->
+<script src="/js/scripts.js"></script>
+
+<script src="/js/conf.js"></script>
+<!-- <script src="/js/tables.js"></script> -->
+<script src="/js/reports.js?0.0.1"></script>
+<script src="/js/common.js?0.0.2"></script>
+
+<!-- custom link js -->
+<!-- <script src="/js/custom-link.js"></script> -->
+
+<!-- Scroll-Top button -->
+<a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+
+</body>
+</html>

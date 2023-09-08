@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+    <head>
+        <!-- Meta setup -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="">
+        <meta name="decription" content="">
+        <meta name="author" content="">
+
+        <!-- Title -->
+        <title>AgentStat|connect profile</title>
+
+        <!-- Fav Icon -->
+        <link rel="icon" href="/img/fav.png" />
+
+        <link href="/css/fileinput.css" rel="stylesheet" type="text/css">
+
+        <!-- Include Owl-Carusol -->
+        <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+
+        <!-- Include Bootstrap -->
+        <link rel="stylesheet" href="/css/bootstrap.css" />
+
+        <!-- Main StyleSheet -->
+        <link rel="stylesheet" href="/style.css" />
+
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="/css/responsive.css" />
+
+        <!-- Common css for all pages -->
+        <link rel="stylesheet" href="/css/common.css?0.0.1" />
+
+        <!-- Page css for all pages -->
+        <link rel="stylesheet" href="/css/connect-profile.css" />
+
+        <script src="/js/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
+        <script src="https://cdn.rawgit.com/taromero/swal-forms/master/swal-forms.js"></script>
+
+    </head>
+
+<body>
+    <div class="page-container">
+        <div class="header-area sticky-top bg-white custom_header">
+            <div class="" >
+                <div class="row" style="margin-right: 0px;">
+                    <div class="col-lg-12">
+
+                        <nav class="navbar navbar-expand-md navbar-light">
+                            <a class="navbar-brand" href="/">
+                                <img class="image" src="/img/logo-beta.png" alt="logo" />
+                            </a>
+                            <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                </ul>
+                                <div  class="main-menu-part">
+                                    <ul>
+                                        <li><a href="/howsearchworks/">How Search Works</a></li>
+                                    </ul>
+                                </div>
+                                <div id="login-menu" class="main-menu-part">
+                                    <ul class="float-right">
+                                        <li><a href="/login/">Login</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="full-formx">
+
+                <!-- profile area start -->
+                <div class="profile">
+                    <div class="container">
+                        <div id="noagent-error" class="alert alert-danger" role="alert" style="margin-bottom:0px; margin-top: 15px; display: none;">
+                          You have not claimed your agent profile yet, find your profile here.
+                        </div>
+                        <div class="profile-heading" style="margin-top: 35px;">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h2>Claim Your Profile</h2>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a id="add-agent-request" href="javascript:void(0)" class="btn" data-toggle="modal" data-target="#referralModal" style="float: right;">Can't find yourself in our system?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- profile area end -->
+
+                <!-- form-area start -->
+                <div class="form">
+                    <div class="container">
+                        <div class="form-wrapper">
+                            <div class="row h-100">
+                                <div class="col-lg-6 mx-auto">
+                                    <div class="alert alert-danger msg" role="alert"
+                                         style="display: none">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="basic-form-info">
+                                <div class="form-name ml-5">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <div class="fn-right">
+                                                <input type="text" class="form-control" id="agent_name" name="text" placeholder="Full Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-log-4">
+                                            <div class="fn-right">
+                                                <select id='state' class='form-control' ></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-log-4">
+                                            <div class="fn-left">
+                                                <button id='search'
+                                                  style='margin-left:10px;' class="btn btn-success">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="margin-l-s" id='select_agent' text-align='center'></div>
+                <br>
+                <div  class="margin-l-s"><button disabled id='set_agent' class="btn btn-warning"> This is me</button> <br> <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="footer-wrapper text-center">
+                <p>Copyright © agentstat.com</p>
+                <ul>
+                    <a href="https://agentstat.com/terms.pdf" target="_blank">"Terms of Use & Privacy Policy"</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="dispute-form"></div>
+
+    <div class="modal" id="referralModal" tabindex="-1" role="dialog"
+        style="margin-top: 50px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="buyerpopup-holder">
+                <div class="modal-header">
+                    <h5 class="modal-title">Request your Agent Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="input-title">Personal Information</span>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="Full Name" id="request_name" style="width: 100%">
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="License" style="width:100%" id="request_license" pattern="[a-zA-Z0-9 ]+">
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row popup-row">
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="Email" id="request_email" style="width: 100%">
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="Phone" id="request_phone" style="width: 100%">
+                        </div>
+                    </div>
+                    
+            
+                    <div class="row popup-row">
+                        <div class="col-lg-12">
+                            <span class="address-box">Brokerage Information</span>
+                        </div>
+                    </div>
+                    
+                    <div class="row ">
+                        <div class="col-lg-12">
+                            <input type="text" placeholder="Brokerage Name" style="width:100%" id="request_brokerage_name">
+                        </div>
+                        
+                    </div>
+
+                    <div class="row popup-row">
+                        <div class="col-lg-12">
+                            <input type="text"  placeholder="Street Address" style="width: 100%" id="request_street_address">
+                        </div>
+                    </div>
+            
+                    <div class="row popup-row">
+                        <div class="col-lg-6">
+                            <input type="text"  placeholder="City" style="width:100%" id="request_city">
+                        </div>
+                        <div class="col-lg-3" class="small-tabrow">
+                            <select id="request_state" name='state' style="width: 100%;">
+                                <option value='state' selected disabled>State</option>
+                                <option value='AK'>AK</option>
+                                <option value='AL'>AL</option>
+                                <option value='AR'>AR</option>
+                                <option value='AS'>AS</option>
+                                <option value='AZ'>AZ</option>
+                                <option value='CA'>CA</option>
+                                <option value='CO'>CO</option>
+                                <option value='CT'>CT</option>
+                                <option value='DC'>DC</option>
+                                <option value='DE'>DE</option>
+                                <option value='FL'>FL</option>
+                                <option value='GA'>GA</option>
+                                <option value='GU'>GU</option>
+                                <option value='HI'>HI</option>
+                                <option value='IA'>IA</option>
+                                <option value='ID'>ID</option>
+                                <option value='IL'>IL</option>
+                                <option value='IN'>IN</option>
+                                <option value='KS'>KS</option>
+                                <option value='KY'>KY</option>
+                                <option value='LA'>LA</option>
+                                <option value='MA'>MA</option>
+                                <option value='MD'>MD</option>
+                                <option value='ME'>ME</option>
+                                <option value='MI'>MI</option>
+                                <option value='MN'>MN</option>
+                                <option value='MO'>MO</option>
+                                <option value='MP'>MP</option>
+                                <option value='MS'>MS</option>
+                                <option value='MT'>MT</option>
+                                <option value='NA'>NA</option>
+                                <option value='NC'>NC</option>
+                                <option value='ND'>ND</option>
+                                <option value='NE'>NE</option>
+                                <option value='NH'>NH</option>
+                                <option value='NJ'>NJ</option>
+                                <option value='NM'>NM</option>
+                                <option value='NV'>NV</option>
+                                <option value='NY'>NY</option>
+                                <option value='OH'>OH</option>
+                                <option value='OK'>OK</option>
+                                <option value='OR'>OR</option>
+                                <option value='PA'>PA</option>
+                                <option value='PR'>PR</option>
+                                <option value='RI'>RI</option>
+                                <option value='SC'>SC</option>
+                                <option value='SD'>SD</option>
+                                <option value='TN'>TN</option>
+                                <option value='TX'>TX</option>
+                                <option value='UT'>UT</option>
+                                <option value='VA'>VA</option>
+                                <option value='VI'>VI</option>
+                                <option value='VT'>VT</option>
+                                <option value='WA' selected>WA</option>
+                                <option value='WI'>WI</option>
+                                <option value='WV'>WV</option>
+                                <option value='WY'>WY</option>
+                            </select>
+                
+                        </div>
+                        <div class="col-lg-3 small-tabrow" style="padding-left: 0;">
+                            <input type="text" placeholder="Zipcode" style="width:100%" id="request_zipcode">
+                        </div>
+                    </div>   
+                    
+                    <div id="request-msg" class="alert alert-success" role="alert" style="margin-bottom:0px; margin-top: 15px; display: none;">
+                        Thank you, we will reach out to you shortly
+                    </div>
+
+                    <div id="request-error" class="alert alert-danger" role="alert" style="margin-bottom:0px; margin-top: 15px; display: none;">
+                        All field are required
+                    </div>
+                </div>
+            
+                <div class="modal-footer">
+                    <div class="nextstep-btn">
+                        <button type="button" id='request-btn' class="btn btn-primary">
+                            Request
+                            <i id="request-spinner" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                            <i id="request-check" class="fa fa-check" aria-hidden="true" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="claim-profile-form11"></div>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFH-yKmfPyaa18_uYUwVWb7THj-b1hymE&amp;libraries=places"></script>
+
+    <!-- Main jQuery -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+
+    <!-- Bootstrap Propper jQuery -->
+    <script src="/js/popper.js"></script>
+
+    <!-- Bootstrap jQuery -->
+    <script src="/js/bootstrap.js"></script>
+
+    <!-- Input Masking -->
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+
+    <!-- Fontawesome Script -->
+    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+
+    <script src="/js/fileinput.js"></script>
+
+    <script src="/js/owl.carousel.min.js"></script>
+
+    <!-- Custom jQuery -->
+    <script src="/js/scripts.js"></script>
+
+    <script src="/js/conf.js"></script>
+    <script src="/js/main.js?0.0.1"></script>
+    <script src="/js/common.js?0.0.2"></script>
+    <script src="/js/connect.js"></script>
+    <script src="/js/connect_agent.js"></script>
+
+    <!-- Scroll-Top button -->
+    <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+    </body>
+</html>

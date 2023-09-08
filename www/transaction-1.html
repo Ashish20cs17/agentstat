@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+    <head>
+        <!-- Meta setup -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="">
+        <meta name="decription" content="">
+        <meta name="author" content="Aaron">
+
+        <!-- Title -->
+        <title>Transactions</title>
+
+        <!-- Fav Icon -->
+        <link rel="icon" href="/img/fav.png" />
+
+        <link href="/css/fileinput.css" rel="stylesheet" type="text/css">
+
+        <!-- Include Owl-Carusol -->
+        <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+
+        <!-- Include Bootstrap -->
+        <link rel="stylesheet" href="/css/bootstrap.css" />
+        <script src="/js/bootstrap.js"></script>
+
+        <!-- Plugin CSS -->
+        <link rel="stylesheet" href="/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" />
+
+        <!-- Datatables CSS-->
+        <link rel="stylesheet" href="/plugins/datatables/css/dataTables.bootstrap4.min.css" />
+
+        
+
+        <!-- Main StyleSheet -->
+        <link rel="stylesheet" href="/style.css" />
+
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="/css/responsive.css" />
+
+        <!-- Common css for all pages -->
+        <link rel="stylesheet" href="/css/common.css?0.0.1" />
+
+        <!-- Page CSS -->
+        <link rel="stylesheet" href="/css/transactions.css" />
+        <link rel="stylesheet" href="/css/tables.css" />
+
+
+    </head>
+
+    <body>
+        <!-- header-area start -->
+        <div class="header-area sticky-header two-header-area sticky-top bg-white" style="z-index: 50000;">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand form-logo" href="/">
+                    <img src="/img/logo-beta.png" alt="logo" />
+                </a>
+                <button class="hamburger hamburger--squeeze navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="main-menu-part form-menu col-lg-12">
+                        <ul class="float-left form-ulli-left">
+                            <li class="inbox-link header-link"><a class="inbox-notification" href="/inbox/">Inbox </a></li>
+                            <li class="reports-link header-link"><a href="/reports/">Reporting </a></li>
+                            <li class="marketing-link header-link"><a href="/marketing/">Marketing </a></li>
+                            <li class="past-sales-link header-link"><a class="active" href="/past-sales/">Sales </a></li>
+                            <li class="referrals-link header-link"><a class="referral-notification" href="/referrals/">Referrals</a></li>
+                            <li class="team-link header-link"><a href="/team/">Team </a></li>
+                        </ul>
+                        <ul class="float-right user-icon form-ulli-right">
+                            <li>
+                                <a class="my-profile-link" href="javascript:void(0)" target="_blank">
+                                    <p style="margin-bottom: 0px;">My Profile</p>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dropdown profile show">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="display-picture"></i></span>
+                                    </a>
+        
+                                    <div class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
+                                        <a id="inbox-link" class="dropdown-item " href="/inbox/">
+                                            <p>Dashboard</p>
+                                            <span>View your stats and backend</span>
+                                        </a>
+                                        <a class="dropdown-item" href="/profile-settings/">
+                                            <p>Profile Settings</p>
+                                            <span>Edit your profile info and account settings</span>
+                                        </a>
+                                        <a class="dropdown-item logout" href="javascript:void(0)">Sign Out</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- header-area end -->
+        <div class="container-fluid page-container">
+            <div class="pth-all-heading">
+                <br>
+                <span class="add-transaction-btn" data-toggle="modal" data-target="#addTransaction"><b>+ Add Transaction</b></span>
+            </div>
+                <div class="pth-all">
+                <table class="table-responsive" id="transations-table" style="overflow-x: inherit; width: 100% !important;">
+                    <thead>
+                        <tr class="table-heading-transaction table-heading table-color">
+                            <td style="display:none;"></td>
+                            <td style="display:none;"></td>
+                            <td class="table-column">Status</td>
+                            <td class="table-column">List Price</td>
+                            <td class="table-column">Sold Price</td>
+                            <td class="table-column">Days on Market</td>
+                            <td class="table-column">List Date</td>
+                            <td class="table-column">Address</td>
+                            <td class="table-column">City</td>
+                            <td class="table-column">Zip</td>
+                            <td class="table-column">Built</td>
+                            <td class="table-column">Home Type</td>
+                            <td class="table-column">Notes</td>
+                        </tr>
+                    </thead>
+                    <tbody id="table-transaction-body">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="addTransaction" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="text-center">Add Transaction</h4>
+            
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="form-style">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h6>1. Required Information</h6>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <input id="address_text" type="text" class="add-transaction-form form-control " name="street-address" placeholder="Street Address" required="required">
+                                </div>
+                                <!--
+                                <div class="form-group col-md-4">
+                                    <input class="add-transaction-form form-control " name="unit" placeholder="Unit #">
+                                </div>-->
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <input type="text" id="city" class="add-transaction-form form-control " name="city" placeholder="City" required="required">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <!-- <input type="password" class="add-transaction-form form-control " name="state" placeholder="State" required="required"> -->
+                                    <select id="state" class="add-transaction-form form-control ">
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <input id="zipcode" type="text" class="add-transaction-form form-control " name="Zipcode" placeholder="Zipcode" required="required">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <select id="home_type" class="add-transaction-form form-control ">
+                                        <option value="SINGLE_FAMILY" selected>Single Family</option>
+                                        <option value="CONDOMINIUM">Condominium</option>
+                                        <option value="TOWNHOUSE">Townhouse</option>
+                                        <option value="LAND">Land</option>
+                                        <option value="MANUFACTURED">Manufactured</option>
+                                        <option value="MULTI_FAMILY">Multi-family</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select id="inputState" class="add-transaction-form form-control ">
+                                        <option selected>Seller</option>
+                                        <option>Buyer</option>
+                                        <option>Both</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input id="list_date" type="text" class="add-transaction-form form-control " name="listing-date" placeholder="Listing Date" required="required" autocomplete="off">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input id="sold_date" type="text" class="add-transaction-form form-control " name="sold-date" placeholder="Sold Date" required="required" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input id="list_price_int" type="text" class="add-transaction-form form-control " name="listing-price" placeholder="Listing Price" required="required">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input id="sold_price_int" type="text" class="add-transaction-form form-control " name="solid-price" placeholder="Sold Price" required="required">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h6>2. Optional Details</h6>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group" >
+                                        <select id="beds" class="add-transaction-form form-control ">
+                                            <option value="" selected>Select Bedrooms</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                        </select>
+                                    </div>
+    
+                                    <div class="form-group">
+                                        <select id="baths" class="add-transaction-form form-control ">
+                                            <option value="" selected>Select Bathrooms</option>
+                                            <option>0.5</option>
+                                            <option>1</option>
+                                            <option>1.5</option>
+                                            <option>2</option>
+                                            <option>2.5</option>
+                                            <option>3</option>
+                                            <option>3.5</option>
+                                            <option>4</option>
+                                            <option>4.5</option>
+                                            <option>5</option>
+                                            <option>5.5</option>
+                                            <option>6</option>
+                                            <option>6.5</option>
+                                            <option>7</option>
+                                            <option>7.5</option>
+                                            <option>8</option>
+                                            <option>8.5</option>
+                                            <option>9</option>
+                                            <option>9.5</option>
+                                            <option>10</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="col-md-6">
+                                    <label>Transaction Details</label>
+                                    <div class="form-check add-transaction-check">
+                                        <div>
+                                            <input class="form-check-input3" name="reo" type="checkbox" value="" id="invalidCheck1">
+                                            <label class="form-check-label3" for="invalidCheck1">
+                                                <small> REO</small>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input3" name="foreclosure" type="checkbox" value="" id="invalidCheck2">
+                                            <label class="form-check-label3" for="invalidCheck2">
+                                                <small> Foreclosure</small>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input3" name="short-sale" type="checkbox" value="" id="invalidCheck3">
+                                            <label class="form-check-label3" for="invalidCheck3">
+                                                <small> Short Sale</small>
+                                            </label>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                            </div>
+
+                            <!-- <div class="form-row">
+                                
+                                <div class="col-md-6">
+                                    
+                                </div>
+                            </div> -->
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="add-transaction-form form-control " name="other-agent" onkeyup="trackChange(this.value)" placeholder="Other Agent Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input disabled type="text" class="add-transaction-form form-control " id="other-agent-license" name="other-agent-license" placeholder="Other Agent License #">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <button id="save-transaction" type="button" class="btn btn-primary">
+                                    Save Transaction
+                                    <i id="save-transaction-spinner" class="fa fa-spinner fa-spin" aria-hidden="true" style="display: none;"></i>
+                                    <i id="save-transaction-check" class="fa fa-check" aria-hidden="true" style="display: none;"></i>
+                                </button>
+                            </div>
+                            <div class="form-row">
+                                <button type="reset" class="btn" data-dismiss="modal">Cancel</button>
+                            </div>
+                            <div class="form-row">
+                              <div style="display:none" id="transaction-msg">
+                                Transaction has been saved.
+                              </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer area start -->
+        <div class="footer">
+            <div class="container">
+                <div class="footer-wrapper text-center">
+                    <p>Copyright © agentstat.com</p>
+                    <ul>
+                        <a href="https://agentstat.com/terms.pdf" target="_blank">"Terms of Use & Privacy Policy"</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-tutorial-modal"></div>
+        
+        <!-- Main jQuery -->
+        <script src="/js/jquery-3.4.1.min.js"></script>
+
+        <!-- Bootstrap Propper jQuery -->
+        <script src="/js/popper.js"></script>
+
+        <!-- Bootstrap jQuery -->
+        <script src="/js/bootstrap.js"></script>
+
+        <!-- Fontawesome Script -->
+        <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+        <script src="/js/type.js"></script>
+
+        <script src="/js/owl.carousel.min.js"></script>
+
+        <!-- Plugins -->
+        <script src="/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+        <script src="/plugins/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+
+        <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
+
+        <!-- Bootbox confirm box -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+
+        <!-- Custom jQuery -->
+        <script src="/js/scripts.js"></script>
+
+        <script src="/js/conf.js"></script>
+        <script src="/js/common.js?0.0.2"></script>
+
+        <script src="/js/tables.js?0.0.2"></script>
+        <script src="/js/transactions.js?0.0.4"></script>
+
+        <!-- Scroll-Top button -->
+        <a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
+
+        <script>
+            $(document).ready(function () {
+                td_array = document.getElementsByTagName("td");
+                for (i = 0; i < td_array.length; i++) {
+                    if (td_array[i].textContent == 'SOLD' || td_array[i].textContent == 'Sold' || td_array[i].textContent == 'sold') {
+                        td_array[i].setAttribute('style', 'font-weight: 500;font-size: 16px;color: #45AE3C;text-transform: uppercase');
+                    }
+                }
+            });
+            $(".closeform").click(function () {
+                $('.fidout').fadeOut('slow');
+            });
+
+            function trackChange(val){
+                if(val.trim() != ''){
+                    $('#other-agent-license').removeAttr("disabled");
+                }
+                else{
+                    $('#other-agent-license').val('');
+                    $('#other-agent-license').prop("disabled", true);
+                }
+                    
+            }
+
+            
+        </script>
+    </body>
+</html>
